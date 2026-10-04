@@ -1,0 +1,52 @@
+---
+title: Blog
+description: Tutorials, deep dives and lessons learned on Java, Quarkus, Spring and the cloud.
+layout: home
+paginate:
+  collection: posts
+  size: 12
+---
+
+<section class="dv-page-head">
+  <p class="dv-eyebrow">The Javaverse Blog</p>
+  <h1>All <span class="dv-gradient-text">Articles</span></h1>
+  <p class="dv-lead">Tutorials, deep dives and lessons learned on Java, Quarkus, Spring and the cloud.</p>
+</section>
+
+<section class="dv-section">
+  {#if site.collections.get('posts')}
+  <div class="dv-grid">
+    {#for post in site.collections.get('posts').paginated(page.paginator)}
+    <a class="dv-card" href="{=post.url}">
+      {#if post.image}
+      <div class="dv-card-img" style='background-image: url("{=post.image}"){#if post.data('image-dark', '')}; --img-dark: url("{=site.image(post.data('image-dark', ''))}"){/if}'></div>
+      {/if}
+      <div class="dv-card-body">
+        <span class="dv-card-date">{=post.date.format('MMMM d, yyyy')} · {=post.readTime} min read</span>
+        <h3>{=post.title}</h3>
+        <p>{=post.description ?: post.contentAbstract}</p>
+      </div>
+    </a>
+    {/for}
+  </div>
+  {#else}
+  <p class="dv-lead">No articles yet, stay tuned!</p>
+  {/if}
+
+  {#if page.paginator && page.paginator.total > 1}
+  <nav class="dv-pagination">
+    {#if page.paginator.previous}
+    <a class="dv-btn dv-btn-ghost" href="{=page.paginator.previous}"><i class="fa-solid fa-arrow-left"></i> Newer</a>
+    {/if}
+    <span class="dv-page-num">Page {=page.paginator.currentIndex} of {=page.paginator.total}</span>
+    {#if page.paginator.next}
+    <a class="dv-btn dv-btn-ghost" href="{=page.paginator.next}">Older <i class="fa-solid fa-arrow-right"></i></a>
+    {/if}
+  </nav>
+  {/if}
+</section>
+
+<footer class="dv-footer">
+  <p>Copyright © {=now.format('yyyy')} Ankit Singh. Javaverse. All rights reserved</p>
+</footer>
+

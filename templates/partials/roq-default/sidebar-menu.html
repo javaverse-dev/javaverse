@@ -1,0 +1,8 @@
+<nav class="menu">
+  <ul>
+    {#for item in menu}
+    <li><a class="{=page.url.isActive(site.url(item.path).path) ? 'active' : ''}" href="{=site.url(item.path)}" {#if item.target??}target="{=item.target}"{/if}>{=item.title}</a></li>
+    {/for}
+  </ul>
+</nav>
+

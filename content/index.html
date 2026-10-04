@@ -1,0 +1,87 @@
+---
+title: Javaverse
+description: Software engineer writing about Java, AI, Spring, Quarkus and everything in between.
+name: Javaverse
+simple-name: Javaverse
+image: javaverse-mark.png
+logo: javaverse-mark.svg
+social-github: javaverse-dev
+social-twitter: javaverse_
+layout: home
+theme-color: "#10b981"
+---
+
+<section class="dv-hero">
+    <div class="dv-hero-text">
+        <p class="dv-eyebrow">Java · AI · Quarkus · Spring · Cloud</p>
+        <h1>Welcome to <span class="dv-gradient-text">Javaverse</span></h1>
+        <p class="dv-lead">
+            A universe of modern Java. Practical tutorials, deep dives and real-world lessons on
+            building fast, cloud-native applications with Java, AI, Quarkus and Spring.
+        </p>
+        <ul class="dv-topics">
+            <li>Java</li>
+            <li>AI</li>
+            <li>Quarkus</li>
+            <li>Spring Boot</li>
+            <li>Microservices</li>
+            <li>Cloud Native</li>
+        </ul>
+        <div class="dv-actions">
+            <a href="{=site.url('blog')}" class="dv-btn dv-btn-primary">Explore articles <i class="fa-solid fa-arrow-right"></i></a>
+            <a href="{=site.url('about')}" class="dv-btn dv-btn-ghost">About the author</a>
+        </div>
+    </div>
+    <div class="dv-hero-image dv-hero-mark">
+        <img src="images/javaverse-mark.svg" alt="Javaverse">
+    </div>
+</section>
+
+<section class="dv-section">
+    <div class="dv-section-head">
+        <h2>Latest Articles</h2>
+        <a href="/blog" class="dv-link">View all <i class="fa-solid fa-arrow-right"></i></a>
+    </div>
+    <div class="dv-grid">
+        {#for post in site.collections.get('posts')}
+        {#if post_index < 6}
+        <a class="dv-card" href="{=post.url}">
+            {#if post.image}
+            <div class="dv-card-img" style='background-image: url("{=post.image}"){#if post.data('image-dark', '')}; --img-dark: url("{=site.image(post.data('image-dark', ''))}"){/if}'></div>
+            {/if}
+            <div class="dv-card-body">
+                <span class="dv-card-date">{=post.date.format('MMMM d, yyyy')} · {=post.readTime} min read</span>
+                <h3>{=post.title}</h3>
+                <p>{=post.description ?: post.contentAbstract}</p>
+            </div>
+        </a>
+        {/if}
+        {/for}
+    </div>
+</section>
+
+<section class="dv-cta">
+    <div class="dv-cta-glow" aria-hidden="true"></div>
+    <div class="dv-cta-inner">
+        <div class="dv-cta-copy">
+            <span class="dv-cta-badge"><i class="fa-solid fa-envelope-open-text"></i> Newsletter</span>
+            <h2>Join the <span class="dv-cta-accent">Javaverse</span></h2>
+            <p class="dv-cta-text">Fresh, practical articles in your inbox. No spam, unsubscribe anytime.</p>
+        </div>
+        <form class="dv-subscribe" action="#" method="post"
+              onsubmit="event.preventDefault(); this.classList.add('done');">
+            <div class="dv-subscribe-field">
+                <i class="fa-regular fa-envelope"></i>
+                <input type="email" name="email" placeholder="Enter your email" aria-label="Email address" required>
+                <button type="submit">Subscribe <i class="fa-solid fa-arrow-right"></i></button>
+            </div>
+            <p class="dv-subscribe-thanks"><i class="fa-solid fa-circle-check"></i> You're in! Welcome to the Javaverse.
+            </p>
+        </form>
+    </div>
+</section>
+
+<footer class="dv-footer">
+    <p>Copyright © {=now.format('yyyy')} Ankit Singh. Javaverse. All rights reserved</p>
+</footer>
+

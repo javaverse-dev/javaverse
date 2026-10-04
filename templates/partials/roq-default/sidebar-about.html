@@ -1,0 +1,10 @@
+<section class="about">
+  <a class="brand" href="{=site.url}">
+    {#if site.data.logo?? || site.image}
+    <img class="brand-logo" src="{#if site.data.logo??}{=site.image(site.data.logo)}{#else}{=site.image}{/if}" alt="{=site.data.name}">
+    {/if}
+    <span class="brand-name">Java<span class="brand-accent">verse</span></span>
+  </a>
+</section>
+
+
