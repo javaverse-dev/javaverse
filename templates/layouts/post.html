@@ -1,7 +1,7 @@
 ---
 layout: main
 asciidoc-attributes:
-  notitle@: ""
+notitle@: ""
 ---
 
 {@io.quarkiverse.roq.frontmatter.runtime.model.DocumentPage page}
@@ -33,11 +33,11 @@ asciidoc-attributes:
         <div class="footer-links">
           <div class="page-share">
             <a href="https://x.com/intent/post?text={=page.title}&url={=page.url.encoded}" title="Share on X"
-              rel="nofollow noopener noreferrer" target="_blank"><i class="fa-brands fa-x-twitter"></i> X</a>
+               rel="nofollow noopener noreferrer" target="_blank"><i class="fa-brands fa-x-twitter"></i> X</a>
             <a href="https://www.linkedin.com/sharing/share-offsite/?url={=page.url.encoded}" title="Share on LinkedIn"
-              rel="nofollow noopener noreferrer" target="_blank"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
+               rel="nofollow noopener noreferrer" target="_blank"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
             <a href="https://github.com/iamsinghankit" title="Follow on GitHub"
-              rel="nofollow noopener noreferrer" target="_blank"><i class="fa-brands fa-github"></i> GitHub</a>
+               rel="nofollow noopener noreferrer" target="_blank"><i class="fa-brands fa-github"></i> GitHub</a>
           </div>
           <div class="page-tag">
             {#for tag in page.data.tags.asStrings}
@@ -73,3 +73,6 @@ asciidoc-attributes:
 
 {#insert after-article /}
 
+<!-- Code blocks: syntax highlighting (highlight.js) + copy button -->
+<script src="https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets@11.10.0/highlight.min.js" defer></script>
+<script src="{=site.url('js/code-copy.js')}" defer></script>

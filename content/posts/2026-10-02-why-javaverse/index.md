@@ -4,6 +4,7 @@ description: Java ships every six months and AI is rewriting how we build softwa
 tags: java, ai, javaverse, release-cadence, community
 author: ankit
 image: javaverse-logo.svg
+logo: javaverse-logo.svg
 image-dark: javaverse-logo-dark.svg
 ---
 
